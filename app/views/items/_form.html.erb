@@ -1,0 +1,27 @@
+<% if @item.errors.any? %>
+  <h5>Errors:</h5>
+  <p><%= @item.errors.full_messages.join(' ,') %></p>
+  <hr />
+<% end %>
+
+<%= form_for @item do |f| %>
+ 
+ <%= f.label :name %>
+ <%= f.text_field :name %>
+ <br />
+
+ <%= f.label :description %>
+ <%= f.text_area :description %>
+ <br />
+
+ <%= f.label :priority %>
+ <%= f.select :priority, [1,2,3,4,5,6,7,8,9,10]%>
+
+ <br />
+
+ <%= f.label :completed %>
+ <%= f.check_box :completed %>
+ <br />
+<%= f.hidden_field :list_id %>
+ <%= f.submit %>
+<% end %>
